@@ -1,5 +1,7 @@
 <?php
 
+use \Drupal\taxonomy\Entity\Term;
+
 /**
  * Implements hook_install().
  *
@@ -10,4 +12,11 @@
 function sph_install() {
   include_once DRUPAL_ROOT . '/core/profiles/standard/standard.install';
   standard_install();
+  $keywords = ['Developer', 'Team lead', 'Manager'];
+  foreach ($keywords as $keyword) {
+    Term::create([
+      'name' => $keyword,
+      'vid' => 'keywords',
+    ])->save();
+  }
 }
