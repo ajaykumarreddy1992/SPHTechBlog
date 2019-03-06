@@ -1,5 +1,7 @@
 <?php
 
+use \Drupal\file\Entity\File;
+use \Drupal\node\Entity\Node;
 use \Drupal\taxonomy\Entity\Term;
 
 /**
@@ -13,10 +15,52 @@ function sph_install() {
   include_once DRUPAL_ROOT . '/core/profiles/standard/standard.install';
   standard_install();
   $keywords = ['Developer', 'Team lead', 'Manager'];
+  $terms = [];
   foreach ($keywords as $keyword) {
-    Term::create([
+    $term = Term::create([
       'name' => $keyword,
       'vid' => 'keywords',
-    ])->save();
+    ]);
+    $term->save();
+    $terms[] = ['target_id' => $term->id()];
   }
+  // Create file object from remote URL.
+  $data = file_get_contents(DRUPAL_ROOT . '/profiles/sph/images/profile.jpg');
+  $file = file_save_data($data, 'public://profile.jpg', FILE_EXISTS_REPLACE);
+  // Create node object with attached file.
+  $author = Node::create([
+    'type' => 'author',
+    'title' => 'Ajay Reddy',
+    'field_designation' => 'Drupal Developer',
+    'field_email' => 'ajaykumarreddy1392@gmil.com',
+    'field_image' => [
+      'target_id' => $file->id(),
+      'alt' => 'Ajay Reddy',
+    ],
+  ]);
+  $author->save();
+  $author_id = $author->id();
+  $images = [];
+  $file_data_array = ['bench.jpeg', 'Road.jpg', 'trees.jpg'];
+  $data = '';
+  $file = '';
+  foreach ($file_data_array as $file_data) {
+    $data = file_get_contents(DRUPAL_ROOT . '/profiles/sph/images/' . $file_data);
+    $file = file_save_data($data, 'public://profile.jpg', FILE_EXISTS_REPLACE);
+    $images[] = [
+      'fid' => $file->fid,
+      'alt' => $file_data,
+    ];
+  }
+  Node::create([
+    'type' => 'blog',
+    'title' => 'Developer Blog',
+    'body' => [
+      'value' => 'This is a test for developer',
+      'format' => 'basic_html',
+    ],
+    'field_photo' => $images,
+    'field_keywords' => $terms,
+    'field_byline' => $author_id,
+  ])->save();
 }
