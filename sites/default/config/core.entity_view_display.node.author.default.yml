@@ -1,0 +1,57 @@
+uuid: cdc6fac3-4b59-4119-84b7-0e05053f112b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.author.body
+    - field.field.node.author.field_designation
+    - field.field.node.author.field_email
+    - field.field.node.author.field_profile_photo
+    - image.style.crop_thumbnail
+    - node.type.author
+  module:
+    - image
+    - text
+    - user
+id: node.author.default
+targetEntityType: node
+bundle: author
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_designation:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_email:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_profile_photo:
+    weight: 5
+    label: hidden
+    settings:
+      image_style: crop_thumbnail
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

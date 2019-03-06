@@ -1,0 +1,38 @@
+uuid: 43cc2f2b-d322-4b75-8747-97f383983bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.author.body
+    - field.field.node.author.field_designation
+    - field.field.node.author.field_email
+    - field.field.node.author.field_profile_photo
+    - image.style.crop_thumbnail
+    - node.type.author
+  module:
+    - image
+    - user
+id: node.author.teaser
+targetEntityType: node
+bundle: author
+mode: teaser
+content:
+  field_profile_photo:
+    type: image
+    weight: 1
+    region: content
+    label: above
+    settings:
+      image_style: crop_thumbnail
+      image_link: ''
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_designation: true
+  field_email: true
