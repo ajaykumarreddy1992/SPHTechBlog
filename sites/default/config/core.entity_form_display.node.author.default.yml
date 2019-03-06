@@ -46,7 +46,6 @@ content:
     weight: 5
     settings:
       show_default_crop: true
-      warn_multiple_usages: true
       preview_image_style: crop_thumbnail
       crop_preview_image_style: crop_thumbnail
       crop_list:
@@ -55,6 +54,7 @@ content:
         - profile_photo
       progress_indicator: throbber
       show_crop_area: false
+      warn_multiple_usages: false
     third_party_settings: {  }
     type: image_widget_crop
     region: content

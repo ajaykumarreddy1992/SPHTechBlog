@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.blog.field_byline
     - field.field.node.blog.field_keywords
     - field.field.node.blog.field_photo
+    - image.style.blog_landscape
+    - image.style.thumbnail
     - node.type.blog
   module:
-    - image
+    - bootstrap_basic_image_gallery
     - text
     - user
 id: node.blog.default
@@ -45,10 +47,15 @@ content:
     weight: 2
     label: above
     settings:
-      image_style: ''
-      image_link: ''
+      image_style: blog_landscape
+      thumbnails_per_row: '3'
+      thumbnail_image_style: thumbnail
+      modal_image_style: blog_landscape
+      carousel_interval: '5000'
+      lazyload: '1'
+      carousel_autorotate: 0
     third_party_settings: {  }
-    type: image
+    type: bootstrap_basic_image_gallery_formatter
     region: content
   links:
     weight: 0

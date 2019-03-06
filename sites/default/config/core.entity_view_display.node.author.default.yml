@@ -8,9 +8,10 @@ dependencies:
     - field.field.node.author.field_email
     - field.field.node.author.field_profile_photo
     - image.style.crop_thumbnail
+    - image.style.medium
     - node.type.author
   module:
-    - image
+    - bootstrap_basic_image_gallery
     - text
     - user
 id: node.author.default
@@ -45,9 +46,14 @@ content:
     label: hidden
     settings:
       image_style: crop_thumbnail
-      image_link: ''
+      thumbnails_per_row: '3'
+      thumbnail_image_style: medium
+      modal_image_style: crop_thumbnail
+      carousel_interval: '5000'
+      lazyload: '1'
+      carousel_autorotate: 0
     third_party_settings: {  }
-    type: image
+    type: bootstrap_basic_image_gallery_formatter
     region: content
   links:
     weight: 0

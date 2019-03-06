@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.blog.field_byline
     - field.field.node.blog.field_keywords
     - field.field.node.blog.field_photo
-    - image.style.crop_thumbnail
+    - image.style.blog_landscape
     - node.type.blog
   module:
     - image_widget_crop
@@ -46,8 +46,8 @@ content:
     settings:
       show_default_crop: true
       warn_multiple_usages: true
-      preview_image_style: crop_thumbnail
-      crop_preview_image_style: crop_thumbnail
+      preview_image_style: blog_landscape
+      crop_preview_image_style: blog_landscape
       crop_list:
         - blog_landscape
       crop_types_required:

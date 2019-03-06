@@ -2,8 +2,10 @@ settings:
   library_url: ''
   css_url: ''
   crop_preview_image_style: crop_thumbnail
-  crop_list: {  }
-  crop_types_required: {  }
+  crop_list:
+    profile_photo: profile_photo
+  crop_types_required:
+    profile_photo: profile_photo
   warn_multiple_usages: false
   show_default_crop: true
   show_crop_area: false

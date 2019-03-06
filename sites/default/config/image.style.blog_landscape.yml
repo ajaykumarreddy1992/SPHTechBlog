@@ -1,0 +1,17 @@
+uuid: 156d8294-afdd-4d67-bd72-ea9f02c3135b
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.blog_landscape
+  module:
+    - crop
+name: blog_landscape
+label: 'Blog Landscape'
+effects:
+  99d71e54-96fb-4370-b8ce-40c8e69c5fed:
+    uuid: 99d71e54-96fb-4370-b8ce-40c8e69c5fed
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: blog_landscape

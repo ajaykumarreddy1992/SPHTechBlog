@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - crop.type.blog_landscape
     - crop.type.profile_photo
   module:
     - crop
@@ -26,9 +25,3 @@ effects:
     weight: 2
     data:
       crop_type: profile_photo
-  f654ae09-2bc1-4f08-8872-035a7590b357:
-    uuid: f654ae09-2bc1-4f08-8872-035a7590b357
-    id: crop_crop
-    weight: 3
-    data:
-      crop_type: blog_landscape
