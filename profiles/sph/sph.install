@@ -46,7 +46,7 @@ function sph_install() {
   $file = '';
   foreach ($file_data_array as $file_data) {
     $data = file_get_contents(DRUPAL_ROOT . '/profiles/sph/images/' . $file_data);
-    $file = file_save_data($data, 'public://profile.jpg', FILE_EXISTS_REPLACE);
+    $file = file_save_data($data, 'public://'.$file_data, FILE_EXISTS_REPLACE);
     $images[] = [
       'fid' => $file->fid,
       'alt' => $file_data,
