@@ -38,6 +38,8 @@ install:
   - views_ui
   - editor
   - ckeditor
+  - menu_ui
+  - tour
 # contrib
   - admin_toolbar
   - admin_toolbar_tools
